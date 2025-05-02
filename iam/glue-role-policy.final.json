@@ -1,0 +1,40 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowS3ReadAccessToRawData",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::lab1-raw-data-david",
+        "arn:aws:s3:::lab1-raw-data-david/*"
+      ]
+    },
+    {
+      "Sid": "AllowS3WriteAccessToProcessedData",
+      "Effect": "Allow",
+      "Action": [
+        "s3:PutObject",
+        "s3:GetObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::lab1-processed-data-david",
+        "arn:aws:s3:::lab1-processed-data-david/*"
+      ]
+    },
+    {
+      "Sid": "AllowKMSUsage",
+      "Effect": "Allow",
+      "Action": [
+        "kms:Encrypt",
+        "kms:Decrypt",
+        "kms:GenerateDataKey",
+        "kms:DescribeKey"
+      ],
+      "Resource": "arn:aws:kms:us-east-1:980921725295:key/"
+    }
+  ]
+}
