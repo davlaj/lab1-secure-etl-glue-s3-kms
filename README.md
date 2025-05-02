@@ -59,7 +59,7 @@ This lab simulates a real-world scenario where a healthcare company ("HealthPlus
 
 ## 🧪 Lab Blocks
 
-This lab is divided into short 3-hour blocks to fit within the Tutorials Dojo AWS sandbox time limits.
+This lab is divided into short blocks.
 
 ### ✅ Block 1 — Environment Setup
 - [x] Create S3 buckets (`raw`, `processed`)
