@@ -96,6 +96,26 @@ See [`screenshots/`](screenshots/) for architecture, dashboard, and audit eviden
 
 ---
 
+## 💸 Cost Protection & Monitoring
+
+This project was conducted in a personal AWS account with all billing safety mechanisms enabled:
+
+- ✅ **Budget Alerts**:
+  - `Zero-Spend Budget`: alerts when costs exceed $0.01
+  - `Monthly Budget`: $5/month soft limit with email alerts at 85% and 100%
+  
+- ✅ **Anomaly Detection Monitor**:
+  - Name: `aws-lab-anomaly-monitor`
+  - Monitors total monthly spend at the account level
+  - Uses Amazon SNS for immediate alerting in case of spending spikes
+
+- ✅ **Manual Cleanup Script**:
+  - All lab resources are cleaned up with [`delete_all_lab1_resources.sh`](cli/delete_all_lab1_resources.sh)
+
+These safeguards ensure full cost transparency and control throughout the lab process.
+
+---
+
 ## 🧠 Author & Motivation
 
 This project is part of a hands-on AWS portfolio to demonstrate secure cloud data engineering capabilities.  
