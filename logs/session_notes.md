@@ -2,12 +2,12 @@
 
 ## ⏱️ Session 1 – Environment Setup
 
-**Date**: [yyyy-mm-dd]  
+**Date**: 2025-05-02  
 **Sandbox Duration**: 3 hours  
 **Goal**: Create S3 buckets, upload data, set up KMS key and IAM role.
 
 ### ✅ Actions Completed
-- Created S3 buckets: `lab1-raw-data-[user]`, `lab1-processed-data-[user]`
+- Created S3 buckets: `lab1-raw-data-davlaj`, `lab1-processed-data-davlaj`
 - Uploaded `realistic_patient_data_10k.csv` to raw bucket
 - Created a custom KMS key for encryption
 - Created and attached IAM role with least privilege access to S3 and KMS
