@@ -63,8 +63,8 @@ This lab is divided into short blocks.
 
 ### ✅ Block 1 — Environment Setup
 - [x] Create S3 buckets (`raw`, `processed`)
-- [x] Upload anonymized patient data (CSV)
 - [x] Create a custom symmetric KMS key
+- [x] Upload encrypted patient data (CSV) with SSE-KMS
 - [x] Define IAM role for AWS Glue with least privilege
 
 ### ⏳ Block 2 — ETL Pipeline
@@ -113,6 +113,18 @@ This project was conducted in a personal AWS account with all billing safety mec
   - All lab resources are cleaned up with [`delete_all_lab1_resources.sh`](cli/delete_all_lab1_resources.sh)
 
 These safeguards ensure full cost transparency and control throughout the lab process.
+
+---
+
+## 💸 Security
+
+This lab enforces production-grade security and cost governance:
+
+- ✅ Budget alerts and cost anomaly detection are enabled
+- ✅ KMS is used for encryption at rest on both raw and processed data buckets
+- ✅ All sensitive data is encrypted upon upload with `--sse-kms`
+- ✅ IAM roles and policies are auto-generated with strict least-privilege rules
+- ✅ Keys are reused safely unless explicitly deleted
 
 ---
 
