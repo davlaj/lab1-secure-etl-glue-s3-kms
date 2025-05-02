@@ -66,16 +66,19 @@ This lab is divided into short blocks.
 - [x] Create a custom symmetric KMS key
 - [x] Upload encrypted patient data (CSV) with SSE-KMS
 - [x] Define IAM role for AWS Glue with least privilege
+- [ ] Enable CloudTrail and configure audit log S3 bucket
 
 ### ⏳ Block 2 — ETL Pipeline
 - [ ] Create Glue Crawler for raw dataset
 - [ ] Create PySpark Glue Job for cleaning & transformation
-- [ ] Write output to encrypted S3 bucket
+- [ ] Write output to encrypted S3 bucket (`processed`)
 
 ### ⏳ Block 3 — Validation and Audit
-- [ ] Check KMS encryption
-- [ ] Validate Glue Catalog
-- [ ] Inspect logs (CloudWatch, CloudTrail)
+- [ ] Check KMS encryption is applied on output files
+- [ ] Validate Glue Catalog and schema
+- [ ] Inspect logs in **CloudWatch Logs** (Glue Job runtime)
+- [ ] Enable and inspect **CloudTrail** (S3 access, KMS usage, IAM activity)
+- [ ] Set retention policy for CloudTrail + cost-efficient log storage
 
 ### ⏳ Block 4 — Visualization with QuickSight
 - [ ] Connect QuickSight to processed dataset
