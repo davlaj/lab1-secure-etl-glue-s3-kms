@@ -17,3 +17,7 @@ bash cli/generate_glue_policy.sh
 
 # 5. Create IAM role for Glue with trust and inline policy
 bash cli/create_glue_role.sh
+```
+
+Make sure AWS CLI is configured with the correct profile and region.
+All steps should be run in the root folder of the repository.
