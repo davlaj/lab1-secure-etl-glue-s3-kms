@@ -1,0 +1,14 @@
+# Ignore KMS key metadata
+kms/last-created-key-id.txt
+
+# Ignore IAM generated policies
+iam/glue-role-policy.final.json
+
+# Ignore temporary or local files
+*.log
+*.tmp
+.DS_Store
+
+# Ignore output folders or screenshots
+output/
+screenshots/
