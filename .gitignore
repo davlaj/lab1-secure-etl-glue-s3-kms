@@ -10,5 +10,4 @@ iam/glue-role-policy.final.json
 .DS_Store
 
 # Ignore output folders or screenshots
-output/
 screenshots/
