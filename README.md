@@ -19,30 +19,30 @@ This lab simulates a real-world scenario where a healthcare company ("HealthPlus
 
 ## 🧱 Architecture
 
-        +--------------+
-        | Raw CSV (S3) |
-        +------+-------+
-               |
-               v
-       +-------+--------+
-       |  Glue Crawler  |
-       +-------+--------+
-               |
-               v
-      +--------+--------+
-      | Glue Job (PySpark) |
-      +--------+--------+
-               |
-               v
-  +------------+--------------+
-  | Encrypted Clean Data (S3)|
-  +------------+--------------+
-               |
-               v
-       +-------+--------+
-       |  QuickSight    |
-       |   Dashboard    |
-       +----------------+
+                +--------------+
+                | Raw CSV (S3) |
+                +------+-------+
+                       |
+                       v
+               +-------+--------+
+               |  Glue Crawler  |
+               +-------+--------+
+                       |
+                       v
+              +--------+--------+
+              | Glue Job (PySpark) |
+              +--------+--------+
+                       |
+                       v
+          +------------+--------------+
+          | Encrypted Clean Data (S3)|
+          +------------+--------------+
+                       |
+                       v
+               +-------+--------+
+               |  QuickSight    |
+               |   Dashboard    |
+               +----------------+
 
 ---
 
