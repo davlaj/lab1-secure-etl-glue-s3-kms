@@ -29,19 +29,19 @@ This lab simulates a real-world scenario where a healthcare company ("HealthPlus
                +-------+--------+
                        |
                        v
-              +--------+--------+
+              +--------+-----------+
               | Glue Job (PySpark) |
-              +--------+--------+
+              +--------+-----------+
                        |
                        v
           +------------+--------------+
-          | Encrypted Clean Data (S3)|
+          | Encrypted Clean Data (S3) |
           +------------+--------------+
                        |
                        v
                +-------+--------+
                |  QuickSight    |
-               |   Dashboard    |
+               |  Dashboard     |
                +----------------+
 
 ---
