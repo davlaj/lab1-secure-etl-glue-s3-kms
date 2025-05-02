@@ -7,7 +7,7 @@
 **Goal**: Create S3 buckets, upload data, set up KMS key and IAM role.
 
 ### ✅ Actions Completed
-- Created S3 buckets: `lab1-raw-data-davlaj`, `lab1-processed-data-davlaj`
+- Created S3 buckets: `lab1-raw-data-david`, `lab1-processed-data-david`
 - Uploaded `realistic_patient_data_10k.csv` to raw bucket
 - Created a custom KMS key for encryption
 - Created and attached IAM role with least privilege access to S3 and KMS
