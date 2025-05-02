@@ -19,6 +19,9 @@ echo "- RAW_BUCKET: $RAW_BUCKET"
 echo "- PROCESSED_BUCKET: $PROCESSED_BUCKET"
 echo "- KMS ARN: $KMS_ARN"
 
+# === Ensure output directory exists ===
+mkdir -p ../iam
+
 # === Substitute placeholders in template ===
 sed \
   -e "s|{{RAW_BUCKET}}|$RAW_BUCKET|g" \
