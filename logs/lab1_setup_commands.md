@@ -6,11 +6,11 @@ These are the CLI commands used to prepare the environment for Lab 1.
 # 1. Create S3 buckets
 bash cli/create_buckets.sh
 
-# 2. Upload input dataset to S3
-aws s3 cp data/realistic_patient_data_10k.csv s3://lab1-raw-data-david/
-
-# 3. Create a symmetric KMS key (and auto-capture Key ID)
+# 2. Create a symmetric KMS key (and auto-capture Key ID)
 bash cli/create_kms_key.sh
+
+# 3. Upload raw CSV with SSE-KMS
+bash cli/upload_raw_data.sh
 
 # 4. Generate the Glue IAM policy from template with dynamic substitution
 bash cli/generate_glue_policy.sh

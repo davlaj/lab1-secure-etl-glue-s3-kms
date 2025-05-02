@@ -34,7 +34,7 @@
         "kms:GenerateDataKey",
         "kms:DescribeKey"
       ],
-      "Resource": "arn:aws:kms:us-east-1:980921725295:key/"
+      "Resource": "arn:aws:kms:us-east-1:980921725295:key/80fbe017-265f-4460-8528-7f869b59c115"
     }
   ]
 }
