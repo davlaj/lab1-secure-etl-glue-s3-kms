@@ -19,6 +19,8 @@ This lab simulates a real-world scenario where a healthcare company ("HealthPlus
 
 ## 🧱 Architecture
 
+(COULD IT BE BETTER? WHAT THE ARCHITECTURE IS FOR?)
+
                 +--------------+
                 | Raw CSV (S3) |
                 +------+-------+
