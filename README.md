@@ -19,32 +19,7 @@ This lab simulates a real-world scenario where a healthcare company ("HealthPlus
 
 ## 🧱 Architecture
 
-(COULD IT BE BETTER? WHAT THE ARCHITECTURE IS FOR?)
-
-                +--------------+
-                | Raw CSV (S3) |
-                +------+-------+
-                       |
-                       v
-               +-------+--------+
-               |  Glue Crawler  |
-               +-------+--------+
-                       |
-                       v
-              +--------+-----------+
-              | Glue Job (PySpark) |
-              +--------+-----------+
-                       |
-                       v
-          +------------+--------------+
-          | Encrypted Clean Data (S3) |
-          +------------+--------------+
-                       |
-                       v
-               +-------+--------+
-               |  QuickSight    |
-               |  Dashboard     |
-               +----------------+
+![Architecture Diagram](https://github.com/davlaj/lab1-secure-etl-glue-s3-kms/blob/main/architecture/lab1-secure-etl-glue-s3-kms.drawio.png?raw=true)
 
 ---
 
