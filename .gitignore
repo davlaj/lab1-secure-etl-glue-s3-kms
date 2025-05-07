@@ -9,5 +9,5 @@ iam/glue-role-policy.final.json
 *.tmp
 .DS_Store
 
-# Ignore output folders or screenshots
-screenshots/
+# Ignore PyCharm project files
+.idea/
