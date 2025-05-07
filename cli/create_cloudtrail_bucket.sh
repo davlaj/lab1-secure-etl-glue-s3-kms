@@ -4,7 +4,7 @@
 AWS_REGION="us-east-1"
 ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
 BUCKET_NAME="cloudtrail-logs-$ACCOUNT_ID"
-LOGGING_BUCKET_POLICY_FILE="cloudtrail-bucket-policy.json"
+LOGGING_BUCKET_POLICY_FILE="iam/cloudtrail-bucket-policy.json"
 
 # Create the S3 bucket
 echo "Creating CloudTrail logs bucket: $BUCKET_NAME in $AWS_REGION..."
