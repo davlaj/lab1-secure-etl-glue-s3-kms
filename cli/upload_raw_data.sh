@@ -4,7 +4,7 @@
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # === Configuration ===
-RAW_BUCKET="lab1-raw-data-david"
+RAW_BUCKET="lab1-raw-data-david/patient-data"
 CSV_FILE="$SCRIPT_DIR/../data/realistic_patient_data_10k.csv"
 KEY_ID_FILE="$SCRIPT_DIR/../kms/last-created-key-id.txt"
 AWS_REGION="us-east-1"

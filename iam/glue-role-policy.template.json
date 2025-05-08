@@ -26,6 +26,12 @@
       ]
     },
     {
+      "Sid": "AllowListAccessToProcessedDataBucket",
+      "Effect": "Allow",
+      "Action": "s3:ListBucket",
+      "Resource": "arn:aws:s3:::{{PROCESSED_BUCKET}}"
+    },
+    {
       "Sid": "AllowKMSUsage",
       "Effect": "Allow",
       "Action": [

@@ -3,7 +3,7 @@
 # VARIABLES
 CRAWLER_NAME="lab1-patient-data-crawler"
 GLUE_DATABASE_NAME="lab1_glue_db"
-IAM_ROLE_NAME="lab1_glue_role"
+IAM_ROLE_NAME="Lab1GlueRole"
 S3_RAW_PATH="s3://lab1-raw-data-david/patient_data/"
 AWS_REGION="us-east-1"
 

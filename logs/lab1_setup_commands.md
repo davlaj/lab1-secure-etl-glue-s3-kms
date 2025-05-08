@@ -30,7 +30,17 @@ bash cli/enable_cloudwatch_logs_for_cloudtrail.sh
 # 9. Set a log retention policy (30 days) for the CloudWatch Logs group to control storage costs
 bash cli/set_log_retention.sh
 
-# 10. 
+# 10. Set up a crawler that scans the S3 path of raw data and builds a table in the Glue Catalog in order for Athena and Quicksight to recongize the dataset
+bash cli/create_glue_crawler.sh
+
+#12. 
+bash cli/upload_patient_transform_script.sh
+
+# 13.
+bash cli/create_glue_job.sh
+
+# 14.
+bash cli/run_glue_job.sh
 
 ```
 
