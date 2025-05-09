@@ -34,23 +34,21 @@ This lab simulates a real-world scenario where a healthcare company ("HealthPlus
 
 ---
 
-## 🧪 Lab Blocks
+## 🧪 Lab Steps
 
-This lab is divided into short blocks.
-
-### ✅ Block 1 — Environment Setup
+### ✅ Environment Setup
 - [x] Create S3 buckets (`raw`, `processed`)
 - [x] Create a custom symmetric KMS key
 - [x] Upload encrypted patient data (CSV) with SSE-KMS
 - [x] Define IAM role for AWS Glue with least privilege
 - [x] Enable CloudTrail and configure audit log S3 bucket
 
-### ⏳ Block 2 — ETL Pipeline
+### ✅ ETL Pipeline
 - [x] Create Glue Crawler for raw dataset
 - [x] Create PySpark Glue Job for cleaning & transformation
 - [x] Write output to encrypted S3 bucket (`processed`)
 
-### ⏳ Block 3 — Validation and Audit
+### ✅ Validation and Audit
 - [x] **Check encryption (SSE-KMS or SSE-S3) is applied on data at rest**  
   Executed audit script `cli/audit_s3_encryption.sh`:  
     - `lab1-raw-data-david` uses **SSE-KMS** with custom KMS Key.  
@@ -73,22 +71,87 @@ This lab is divided into short blocks.
     - Navigate to CloudWatch → Log groups.  
     - Inspect recent log streams related to Glue jobs and CloudTrail.  
 
-### ⏳ Block 4 — Visualization with QuickSight
-- [ ] Connect QuickSight to processed dataset
-- [ ] Create visuals (age, country, condition, map)
-- [ ] Apply row-level access controls (if needed)
+### ✅ Visualization with QuickSight
+- [x] Connect QuickSight to processed dataset
+- [x] Create visuals (age, country, condition, map)
+- [x] Apply row-level access controls
 
 ---
 
-## 📝 Notes & Logs
+## 🚀 Usage
 
-See [`logs/session_notes.md`](logs/session_notes.md) for detailed session steps and issues encountered.
+Follow these steps to provision resources, execute the ETL pipeline, and validate security controls.  
+Ensure the AWS CLI is configured with the correct profile and region before starting.  
+_All commands must be run from the root directory of the repository._
 
----
+To allow script execution (one-time setup), run:
+```bash
+chmod +x cli/*.sh
+```
 
-## 📸 Screenshots
+### 📦 **Environment Setup & ETL Execution**
 
-See [`screenshots/`](screenshots/) for architecture, dashboard, and audit evidence.
+```bash
+# 1. Create S3 buckets for raw and processed data
+bash cli/create_buckets.sh
+
+# 2. Create a symmetric KMS key and store its Key ID for later use
+bash cli/create_kms_key.sh
+
+# 3. Upload raw CSV data to S3 with SSE-KMS encryption
+bash cli/upload_raw_data.sh
+
+# 4. Generate the IAM policy for Glue dynamically from a template
+bash cli/generate_glue_policy.sh
+
+# 5. Create IAM role for Glue with trust policy and inline policy
+bash cli/create_glue_role.sh
+
+# 6. Create an S3 bucket for CloudTrail logs with proper security controls
+bash cli/create_cloudtrail_bucket.sh
+
+# 7. Enable a multi-region CloudTrail trail and start logging
+bash cli/enable_cloudtrail.sh
+
+# 8. Enable CloudWatch log streaming for CloudTrail
+bash cli/enable_cloudwatch_logs_for_cloudtrail.sh
+
+# 9. Set CloudWatch Logs retention policy (30 days)
+bash cli/set_log_retention.sh
+
+# 10. Upload the Glue transformation script to S3
+bash cli/upload_patient_transform_script.sh
+
+# 11. Create the Glue job to run the ETL process
+bash cli/create_glue_job.sh
+
+# 12. Execute the Glue job to process data
+bash cli/run_glue_job.sh
+
+# 13. Create the Glue crawler for processed data
+bash cli/create_glue_crawler.sh
+
+# 14. Run the Glue crawler to populate the Glue Catalog
+bash cli/run_glue_crawler.sh
+```
+
+### 🔐 **Audit & Security Validation**
+
+``` bash
+# 1. Audit S3 buckets to verify encryption and security policy enforcement
+bash cli/audit_s3_encryption.sh
+
+# 2. Validate Glue Data Catalog contains expected tables and schemas
+bash cli/audit_glue_catalog.sh
+```
+
+## 🧹 Cleanup
+
+To remove all AWS resources created by this lab and avoid unnecessary costs, run:
+
+```bash
+bash cli/cleanup_lab.sh
+```
 
 ---
 
@@ -112,7 +175,7 @@ These safeguards ensure full cost transparency and control throughout the lab pr
 
 ---
 
-## 💸 Security
+## 💸 Security Considerations
 
 This lab enforces production-grade security and cost governance:
 
@@ -123,8 +186,6 @@ This lab enforces production-grade security and cost governance:
 - ✅ KMS keys are reused safely unless explicitly deleted
 - ✅ Glue jobs run in isolated, AWS-managed infrastructure with in-transit encryption (TLS) and encrypted temporary storage
 - ✅ While in-memory data during Glue job execution is not encrypted (by design), it is processed securely within AWS Glue’s isolated environment, which is compliant with SOC 2, ISO 27001, HIPAA, and GDPR
-
-See [`audit/`](logs/session_notes.md) the verification steps used to ensure encryption and access compliance.
 
 ---
 

@@ -1,7 +1,10 @@
-# Ignore KMS key metadata
-kms/last-created-key-id.txt
+# Ignore KMS folder
+.kms/
 
-# Ignore IAM generated policies
+# Ignore architecture folder
+.architecture/
+
+# Ignore IAM generated policies with sensible data
 iam/glue-role-policy.final.json
 
 # Ignore temporary or local files
