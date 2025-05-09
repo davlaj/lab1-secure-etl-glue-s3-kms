@@ -1,0 +1,1 @@
+This folder holds the KMS key ID files required by automation scripts. These files are ignored from version control for security reasons.

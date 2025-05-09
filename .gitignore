@@ -1,5 +1,10 @@
 # Ignore KMS folder
 kms/*
+!kms/README.md
+
+# Ignore architecture folder
+architecture/
+!architecture/README.md
 
 # Ignore IAM generated policies with sensible data
 iam/*final*.json
