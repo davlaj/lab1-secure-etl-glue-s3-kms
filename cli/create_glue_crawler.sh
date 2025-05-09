@@ -1,11 +1,15 @@
 #!/bin/bash
 
+#!/bin/bash
+
 # VARIABLES
 CRAWLER_NAME="lab1-patient-data-crawler"
 GLUE_DATABASE_NAME="lab1_glue_db"
 IAM_ROLE_NAME="Lab1GlueRole"
-S3_RAW_PATH="s3://lab1-raw-data-david/patient_data/"
+S3_RAW_PATH="s3://lab1-processed-data-david/patient-data/"
 AWS_REGION="us-east-1"
+LOG_GROUP="/aws-glue/crawlers"
+LOG_STREAM_PREFIX="lab1-patient-data-crawler"
 
 # Create Glue database if it doesn't exist
 if aws glue get-database --name "$GLUE_DATABASE_NAME" --region "$AWS_REGION" >/dev/null 2>&1; then
@@ -35,6 +39,8 @@ else
     --role "$IAM_ROLE_ARN" \
     --database-name "$GLUE_DATABASE_NAME" \
     --targets "{\"S3Targets\": [{\"Path\": \"$S3_RAW_PATH\"}]}" \
-    --region "$AWS_REGION"
+    --region "$AWS_REGION" \
+    --schema-change-policy '{"UpdateBehavior":"UPDATE_IN_DATABASE","DeleteBehavior":"LOG"}' \
+    --recrawl-policy '{"RecrawlBehavior":"CRAWL_EVERYTHING"}'
   echo "✅ Glue crawler '$CRAWLER_NAME' created."
 fi

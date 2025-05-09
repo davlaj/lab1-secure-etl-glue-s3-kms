@@ -51,11 +51,27 @@ This lab is divided into short blocks.
 - [x] Write output to encrypted S3 bucket (`processed`)
 
 ### ⏳ Block 3 — Validation and Audit
-- [x] Check encryption (SSE-KMS or SSE-S3) is applied on data at rest
-- [ ] Validate Glue Catalog and schema
-- [ ] Inspect logs in **CloudWatch Logs** (Glue Job runtime)
-- [ ] Enable and inspect **CloudTrail** (S3 access, KMS usage, IAM activity)
-- [ ] Set retention policy for CloudTrail + cost-efficient log storage
+- [x] **Check encryption (SSE-KMS or SSE-S3) is applied on data at rest**  
+  Executed audit script `cli/audit_s3_encryption.sh`:  
+    - `lab1-raw-data-david` uses **SSE-KMS** with custom KMS Key.  
+    - `lab1-processed-data-david` uses **SSE-S3** with AES-256 encryption by default.  
+
+- [x] **Validate Glue Catalog and schema**  
+  Executed audit script `cli/audit_glue_catalog.sh` to:
+    - List all tables in the `lab1_glue_db` database.  
+    - Confirm the processed dataset table exists and the schema matches expectations.
+
+- [X] **Enable and inspect CloudTrail (S3 access, KMS usage, IAM activity)**  
+    - Ensure CloudTrail is enabled.  
+    - Verify S3, KMS, and IAM events are being logged by running test activities and checking logs.
+
+- [x] **Set retention policy for CloudTrail + cost-efficient log storage**  
+    - Navigate to CloudWatch → Log groups → Select CloudTrail log group.  
+    - Set a retention policy (e.g., 30 days) to minimize cost while retaining necessary audit data.
+
+- [x] **Inspect logs in CloudWatch Logs (Glue Job runtime)**  
+    - Navigate to CloudWatch → Log groups.  
+    - Inspect recent log streams related to Glue jobs and CloudTrail.  
 
 ### ⏳ Block 4 — Visualization with QuickSight
 - [ ] Connect QuickSight to processed dataset

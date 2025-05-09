@@ -30,18 +30,20 @@ bash cli/enable_cloudwatch_logs_for_cloudtrail.sh
 # 9. Set a log retention policy (30 days) for the CloudWatch Logs group to control storage costs
 bash cli/set_log_retention.sh
 
-# 10. Set up a crawler that scans the S3 path of raw data and builds a table in the Glue Catalog in order for Athena and Quicksight to recongize the dataset
-bash cli/create_glue_crawler.sh
-
-#12. 
+# 10. Upload transformation script
 bash cli/upload_patient_transform_script.sh
 
-# 13.
+# 11. Create Glue job
 bash cli/create_glue_job.sh
 
-# 14.
+# 12. Run Glue job
 bash cli/run_glue_job.sh
 
+# 13. Create Glue crawler
+bash cli/create_glue_crawler.sh
+
+# 14. Run crawler (populates Glue catalog)
+bash cli/run_glue_crawler.sh
 ```
 
 These are the CLI commands used to do the audit to ensure best security practices.
@@ -50,7 +52,10 @@ These are the CLI commands used to do the audit to ensure best security practice
 # 1. Audit all S3 buckets to verify encryption and policy enforcement
 bash cli/audit_s3_encryption.sh
 
-# 2. 
+# 2. Validate that the AWS Glue Data Catalog contains the expected tables and that each table has a valid schema definition
+bash cli/audit_glue_catalog.sh
+
+# 3. 
 ```
 
 Make sure AWS CLI is configured with the correct profile and region.
