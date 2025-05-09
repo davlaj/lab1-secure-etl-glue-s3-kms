@@ -169,7 +169,7 @@ This project was conducted in a personal AWS account with all billing safety mec
   - Uses Amazon SNS for immediate alerting in case of spending spikes
 
 - ✅ **Manual Cleanup Script**:
-  - All lab resources are cleaned up with [`delete_all_lab1_resources.sh`](cli/delete_all_lab1_resources.sh)
+  - All lab resources are cleaned up with `cli/cleanup_lab.sh`
 
 These safeguards ensure full cost transparency and control throughout the lab process.
 
@@ -186,6 +186,18 @@ This lab enforces production-grade security and cost governance:
 - ✅ KMS keys are reused safely unless explicitly deleted
 - ✅ Glue jobs run in isolated, AWS-managed infrastructure with in-transit encryption (TLS) and encrypted temporary storage
 - ✅ While in-memory data during Glue job execution is not encrypted (by design), it is processed securely within AWS Glue’s isolated environment, which is compliant with SOC 2, ISO 27001, HIPAA, and GDPR
+
+---
+
+## 📖 Key Learnings
+
+- ✅ Designed and implemented a secure ETL pipeline using AWS Glue, S3, and KMS.
+- ✅ Enforced encryption at rest (SSE-KMS and SSE-S3) and in transit (TLS).
+- ✅ Automated resource provisioning and cleanup using AWS CLI scripts.
+- ✅ Properly configured IAM roles and policies following the principle of least privilege.
+- ✅ Managed and scheduled deletion of sensitive AWS resources, including KMS keys and CloudTrail logs.
+- ✅ Integrated data visualization using Amazon QuickSight for business insights.
+- ✅ Applied best practices for monitoring and auditing with CloudTrail and CloudWatch Logs.
 
 ---
 
