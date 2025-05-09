@@ -1,8 +1,8 @@
 # Ignore KMS folder
-.kms/
+kms/
 
 # Ignore architecture folder
-.architecture/
+architecture/
 
 # Ignore IAM generated policies with sensible data
 iam/glue-role-policy.final.json
