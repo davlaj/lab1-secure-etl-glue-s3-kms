@@ -1,0 +1,1 @@
+This folder is used for storing architecture diagrams, which are included in the README of the project.
