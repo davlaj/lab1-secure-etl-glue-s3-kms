@@ -2,7 +2,7 @@
 
 ## 🧠 Context
 
-This lab simulates a real-world scenario where a healthcare company ("HealthPlus") needs to securely process and analyze sensitive medical data using AWS-native tools. The pipeline must respect data privacy, security, and regulatory best practices, while preparing the data for analytical dashboards.
+This lab simulates a real-world scenario where a healthcare company needs to securely process and analyze sensitive medical data using AWS-native tools. The pipeline must respect data privacy, security, and regulatory best practices, while preparing the data for analytical dashboards.
 
 ---
 
@@ -46,7 +46,7 @@ This lab simulates a real-world scenario where a healthcare company ("HealthPlus
 ### ✅ ETL Pipeline
 - [x] Create Glue Crawler for raw dataset
 - [x] Create PySpark Glue Job for cleaning & transformation
-- [x] Write output to encrypted S3 bucket (`processed`)
+- [x] Write output processed data to encrypted S3 bucket
 
 ### ✅ Validation and Audit
 - [x] **Check encryption (SSE-KMS or SSE-S3) is applied on data at rest**  
