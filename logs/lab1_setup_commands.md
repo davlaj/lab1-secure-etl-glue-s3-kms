@@ -1,6 +1,6 @@
 # Lab 1 – AWS Secure ETL Setup Commands
 
-These are the CLI commands used to prepare the environment for Lab 1.
+These are the CLI commands used to prepare the environment for and execute Lab 1.
 
 ```bash
 # 1. Create S3 buckets
@@ -42,6 +42,15 @@ bash cli/create_glue_job.sh
 # 14.
 bash cli/run_glue_job.sh
 
+```
+
+These are the CLI commands used to do the audit to ensure best security practices.
+
+```bash
+# 1. Audit all S3 buckets to verify encryption and policy enforcement
+bash cli/audit_s3_encryption.sh
+
+# 2. 
 ```
 
 Make sure AWS CLI is configured with the correct profile and region.

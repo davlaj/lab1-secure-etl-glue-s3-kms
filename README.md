@@ -43,15 +43,15 @@ This lab is divided into short blocks.
 - [x] Create a custom symmetric KMS key
 - [x] Upload encrypted patient data (CSV) with SSE-KMS
 - [x] Define IAM role for AWS Glue with least privilege
-- [ ] Enable CloudTrail and configure audit log S3 bucket
+- [x] Enable CloudTrail and configure audit log S3 bucket
 
 ### ⏳ Block 2 — ETL Pipeline
-- [ ] Create Glue Crawler for raw dataset
-- [ ] Create PySpark Glue Job for cleaning & transformation
-- [ ] Write output to encrypted S3 bucket (`processed`)
+- [x] Create Glue Crawler for raw dataset
+- [x] Create PySpark Glue Job for cleaning & transformation
+- [x] Write output to encrypted S3 bucket (`processed`)
 
 ### ⏳ Block 3 — Validation and Audit
-- [ ] Check KMS encryption is applied on output files
+- [x] Check encryption (SSE-KMS or SSE-S3) is applied on data at rest
 - [ ] Validate Glue Catalog and schema
 - [ ] Inspect logs in **CloudWatch Logs** (Glue Job runtime)
 - [ ] Enable and inspect **CloudTrail** (S3 access, KMS usage, IAM activity)
@@ -101,10 +101,14 @@ These safeguards ensure full cost transparency and control throughout the lab pr
 This lab enforces production-grade security and cost governance:
 
 - ✅ Budget alerts and cost anomaly detection are enabled
-- ✅ KMS is used for encryption at rest on both raw and processed data buckets
-- ✅ All sensitive data is encrypted upon upload with `--sse-kms`
+- ✅ Raw data is encrypted at rest using KMS (SSE-KMS) when uploaded from on-premise to S3
+- ✅ Default bucket encryption (SSE-S3) is applied to the processed data bucket
 - ✅ IAM roles and policies are auto-generated with strict least-privilege rules
-- ✅ Keys are reused safely unless explicitly deleted
+- ✅ KMS keys are reused safely unless explicitly deleted
+- ✅ Glue jobs run in isolated, AWS-managed infrastructure with in-transit encryption (TLS) and encrypted temporary storage
+- ✅ While in-memory data during Glue job execution is not encrypted (by design), it is processed securely within AWS Glue’s isolated environment, which is compliant with SOC 2, ISO 27001, HIPAA, and GDPR
+
+See [`audit/`](logs/session_notes.md) the verification steps used to ensure encryption and access compliance.
 
 ---
 

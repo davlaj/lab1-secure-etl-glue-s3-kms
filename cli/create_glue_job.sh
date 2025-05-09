@@ -30,7 +30,10 @@ aws glue create-job \
   --default-arguments '{
     "--TempDir": "'"$TEMP_DIR"'",
     "--job-language": "python",
-    "--enable-metrics": ""
+    "--enable-metrics": "",
+    "--enable-continuous-cloudwatch-log": "true",
+    "--enable-continuous-log-filter": "true",
+    "--enable-glue-datacatalog": "true"
   }' \
   --glue-version "3.0" \
   --max-capacity 2
